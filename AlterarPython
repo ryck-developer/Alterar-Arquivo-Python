@@ -1,0 +1,38 @@
+import re
+
+arquivo = """
+text=[conteúdo da lista]
+text2=["ola mundo", "hello wolrd"]
+testedemesa = [1,2,3,4]
+"""
+
+class AlterarPython:
+  def __init__(self):
+    self.var = None
+  
+  def com(self, var=None):
+    self.var = var
+    return self
+  
+  def getList(self, name):
+    arquivo = self.var
+    try:
+      expressao_regular_sem_spco = "{}=\[(.*)\]".format(name)
+      expressao_regular_com_spco = "{}\s*=\s*\[(.*)\]".format(name)
+      match = re.search(expressao_regular_sem_spco, arquivo)
+      if match:
+        content = match.group(1)
+        return content
+      else:
+        match = re.search(expressao_regular_com_spco, arquivo)
+        content = match.group(1)
+        return content
+    except:
+        return None
+
+
+arq = AlterarPython().com(
+    var = arquivo
+)
+arq.getList(name='testedemesa')
+
