@@ -1,11 +1,5 @@
 import re
 
-arquivo = """
-text=[conteúdo da lista]
-text2=["ola mundo", "hello wolrd"]
-testedemesa = [1,2,3,4]
-"""
-
 class AlterarPython:
   def __init__(self):
     self.var = None
@@ -30,6 +24,12 @@ class AlterarPython:
     except:
         return None
 
+
+arquivo = """
+text=[conteúdo da lista]
+text2=["ola mundo", "hello wolrd"]
+testedemesa = [1,2,3,4]
+"""
 
 arq = AlterarPython().com(
     var = arquivo
